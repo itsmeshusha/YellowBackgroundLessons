@@ -9,18 +9,12 @@ type AccordionTitlePageType = {
     title: string
 }
 
-export function Accordion(props: AccordionPropsType) {
-    if(props.collapsed === true) {
-        return <div>
-            <AccordionTitle title={props.title}/>
-          </div>
-    } else {
-        return <div>
-            <AccordionTitle title={props.title}/>
-            <AccordionBody />
-      </div>
-    }
 
+export function Accordion(props: AccordionPropsType) {
+    return <div>
+        <AccordionTitle title={props.title}/>
+        { !props.collapsed && <AccordionBody/> }
+    </div>
 
 }
 
