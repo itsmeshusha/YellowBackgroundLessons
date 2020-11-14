@@ -19,7 +19,7 @@ function App() {
       <Accordion title={"Article"} collapsed={false} />
       <Raiting value={5} />
 
-      <OnOff value={true}/>
+      <OnOff />
 
     </div>
   );
