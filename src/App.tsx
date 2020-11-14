@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion";
 import {Raiting, RatingValueType} from './components/Rating';
-import {OnOff} from "./components/OnOff";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion";
 import {UncontrolledRaiting} from "./components/UncontrolledRating";
+import {OnOff} from "./components/OnOff";
 
 
 type PageTitlePropsType = {
@@ -15,6 +16,7 @@ function App() {
 
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0);
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    const [on, setOn] = useState<boolean>(false)
 
   return (
     <div className="App">
@@ -27,7 +29,9 @@ function App() {
       <Accordion title={"Article"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed} />
       <Raiting value={ratingValue} onClick={setRatingValue} />
 
-      <OnOff />
+      <OnOff on={on} onClick={setOn} />
+
+      <UncontrolledOnOff onClick={setOn} />{on.toString()}
       {/*<UncontrolledAccordion title={"Hello"} />*/}
       {/*<UncontrolledRaiting />*/}
 
