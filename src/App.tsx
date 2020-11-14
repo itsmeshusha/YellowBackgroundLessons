@@ -3,6 +3,8 @@ import './App.css';
 import {Accordion} from "./components/Accordion";
 import { Raiting } from './components/Rating';
 import {OnOff} from "./components/OnOff";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion";
+import {UncontrolledRaiting} from "./components/UncontrolledRating";
 
 
 type PageTitlePropsType = {
@@ -20,6 +22,8 @@ function App() {
       <Raiting value={5} />
 
       <OnOff />
+      <UncontrolledAccordion title={"Hello"} />
+      <UncontrolledRaiting />
 
     </div>
   );
