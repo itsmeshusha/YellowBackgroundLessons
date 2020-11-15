@@ -4,7 +4,7 @@ import {Accordion} from "./components/Accordion";
 import { Rating, RatingValueType} from './components/Rating';
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion";
-import {UncontrolledRaiting} from "./components/UncontrolledRating";
+import {UncontrolledRating} from "./components/UncontrolledRating";
 import {OnOff} from "./components/OnOff";
 
 
