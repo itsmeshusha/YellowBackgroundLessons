@@ -6,6 +6,7 @@ import {UncontrolledOnOff} from "./components/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating";
 import {OnOff} from "./components/OnOff";
+import {Select} from "./components/Select/Select";
 
 
 type PageTitlePropsType = {
@@ -24,14 +25,16 @@ function App() {
       <PageTitle title={"Whoa! I can do 'Hello World!' "}/>
 
 
-      <Accordion title={"Menu"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed} />
-      <Rating value={ratingValue} onClick={setRatingValue} />
-      <Accordion title={"Article"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed} />
+      <Accordion title={"Menu"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed} items={[]} onItemClick={()=>{}} />
+      <Rating value={ratingValue} onClick={setRatingValue}  />
+      <Accordion title={"Article"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed} items={[]} onItemClick={()=>{}} />
       <Rating value={ratingValue} onClick={setRatingValue} />
 
       <OnOff on={on} onClick={setOn} />
 
       <UncontrolledOnOff onClick={setOn} />{on.toString()}
+
+      <Select value={[]} onChange={()=>{}} items={[{title: "Dimych", value: 1}, {title: "Valera", value: 2}, {title: "Viktor", value: 3}]} />
       {/*<UncontrolledAccordion title={"Hello"} />*/}
       {/*<UncontrolledRating />*/}
 
