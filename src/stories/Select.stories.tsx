@@ -22,7 +22,7 @@ export const WithValue = () => {
 }
 
 export const WithoutValue = () => {
-    const [value, srtValue] = useState(null)
+    const [value, setValue] = useState(null)
     return <>
         <Select value = {value} onChange={action('Value is changed')}
                 items={[
