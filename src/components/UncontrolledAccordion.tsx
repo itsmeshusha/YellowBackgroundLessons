@@ -34,7 +34,7 @@ export const reducer = (state: StateType, action: ActionType): StateType => {
 }
 
 
-export function UncontrolledAccordion(props: AccordionPropsType) {
+export const UncontrolledAccordion = React.memo((props: AccordionPropsType) => {
 
 
 
@@ -50,15 +50,15 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
         { !state.collapsed && <AccordionBody/> }
     </div>
 
-}
+})
 
-export function AccordionTitle (props: AccordionTitlePageType) {
+export const AccordionTitle = React.memo((props: AccordionTitlePageType) => {
     return <div onClick={() => {props.setCollapsed()}}>
         <h3>{props.title}</h3>
     </div>
-}
+})
 
-export function AccordionBody () {
+export const AccordionBody = React.memo(() => {
     return <div>
         <ul>
             <li>1</li>
@@ -66,4 +66,4 @@ export function AccordionBody () {
             <li>3</li>
         </ul>
     </div>
-}
+})

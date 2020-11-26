@@ -25,24 +25,24 @@ type AccordionBodyPropsType = {
 }
 
 
-export function Accordion(props: AccordionPropsType) {
+export const Accordion = React.memo((props: AccordionPropsType) => {
     return <div>
         <AccordionTitle title={props.title} onClick={props.onClick} collapsed={!props.collapsed} />
         { !props.collapsed && <AccordionBody items={props.items} onItemClick={props.onItemClick}/> }
     </div>
 
-}
+})
 
-export function AccordionTitle (props: AccordionTitlePageType) {
+export const AccordionTitle = React.memo( (props: AccordionTitlePageType) => {
     return <div onClick={() => {props.onClick(props.collapsed)}}>
         <h3>{props.title}</h3>
     </div>
-}
+})
 
-export function AccordionBody (props: AccordionBodyPropsType) {
+export const AccordionBody = React.memo( (props: AccordionBodyPropsType) => {
     return <div>
         <ul>
             { props.items.map( (i, index) => <li onClick={() => props.onItemClick(i.value)} key={index}>{i.title} </li> ) }
         </ul>
     </div>
-}
+})
