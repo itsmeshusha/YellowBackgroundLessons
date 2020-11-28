@@ -4,12 +4,13 @@ export default {
     title: 'React memo demo'
 }
 
-export const Counter = (props: {count: number}) => {
+export const Counter = React.memo((props: {count: number}) => {
+    console.log("Counter rendering")
     return <div>
         {props.count}
     </div>
 
-}
+})
 
 export const MemoUsers = (props: {users: Array<string>}) => {
     console.log("Users")

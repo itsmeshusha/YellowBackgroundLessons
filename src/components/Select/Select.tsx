@@ -1,18 +1,21 @@
 import React, {useState, KeyboardEvent, useEffect} from 'react';
 import s from './Select.module.css'
 
-type ItemType = {
+export type ItemType = {
     title: string
     value: any
+    countryId?: number
+    numberOfPeople?: number
 }
 
-type SelectPropsType = {
+export type SelectPropsType = {
     value?: any
     onChange: (value: any) => void
     items: ItemType[]
 }
 
 export const Select = React.memo((props: SelectPropsType) => {
+    console.log("Select rendering")
 
     const [active, setActive] = useState(false)
     const [hoveredItemElement, setHoveredItemElement] = useState(props.value)
