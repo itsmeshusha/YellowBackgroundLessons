@@ -29,3 +29,42 @@ export const Example = () => {
         {count}
     </div>
 }
+
+export const ExampleSetInterval = () => {
+    console.log("tick")
+    const [count, setCount] = useState(0)
+
+
+    useEffect(() => {
+        setInterval(() => {
+            setCount(state => state +1)
+        }, 1000)
+
+    },[])
+
+    return <div>
+
+        count: {count}
+    </div>
+}
+
+export const Clock = () => {
+    console.log("tick")
+    const [count, setCount] = useState(0)
+
+
+    useEffect(() => {
+        setInterval(() => {
+            setCount(state => state +1)
+        }, 1000)
+
+    },[])
+
+    let date = new Date();
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+
+    return <div>
+        {hours}:{minutes}:{count}
+    </div>
+}
