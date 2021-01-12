@@ -50,21 +50,29 @@ export const ExampleSetInterval = () => {
 
 export const Clock = () => {
     console.log("tick")
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(new Date())
 
 
     useEffect(() => {
-        setInterval(() => {
-            setCount(state => state +1)
+        const intervalId = setInterval(() => {
+            setCount(new Date())
         }, 1000)
 
-    },[])
+        return () => {
+            clearInterval(intervalId)
+        }
+    }, [])
 
     let date = new Date();
-    let hours = date.getHours()
-    let minutes = date.getMinutes()
+    let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours()
+    let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+    let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()
 
-    return <div>
-        {hours}:{minutes}:{count}
-    </div>
+
+        return <div>
+
+            {hours}:{minutes}:{seconds}
+
+        </div>
+
 }
