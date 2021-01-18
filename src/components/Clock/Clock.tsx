@@ -17,7 +17,7 @@ export const Clock = (props: PropsType) => {
             setDate(new Date())
         }, 1000)
         return () => {
-            //clearInterval(intervalID)
+            clearInterval(intervalID)
         }
     }, [])
 

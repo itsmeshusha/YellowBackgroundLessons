@@ -48,31 +48,96 @@ export const ExampleSetInterval = () => {
     </div>
 }
 
-export const Clock = () => {
-    console.log("tick")
-    const [count, setCount] = useState(new Date())
+export const ResetEffectExample = () => {
 
+    const [count, setCount] = useState(1)
+
+    console.log("Component rendered")
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCount(new Date())
-        }, 1000)
+       console.log("Effect occurred: " + count)
 
         return () => {
-            clearInterval(intervalId)
+           console.log("Reset Effect: " + count)
         }
-    }, [])
+    },[count])
 
-    let date = new Date();
-    let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours()
-    let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
-    let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()
+    return <div>
 
-
-        return <div>
-
-            {hours}:{minutes}:{seconds}
-
-        </div>
-
+        count: {count} <button onClick={() => setCount(count+1)}>+</button>
+    </div>
 }
+
+export const KeysTrackerExample = () => {
+
+    const [text, setText] = useState('')
+
+    console.log("Component rendered with" + text)
+
+    useEffect(() => {
+        window.document.addEventListener('keypress', (e) => {
+            console.log(e.key)
+            setText(state => state + e.key)
+        })
+        return window.document.removeEventListener('keypress', (e) => {
+            console.log(e.key)
+            setText(state => state + e.key)
+        })
+    },[text])
+
+    return <div>
+
+        Typed text: {text}
+    </div>
+}
+
+export const SetTimeoutExampleWithClearTimeout = () => {
+
+    const [text, setText] = useState('')
+
+    console.log("Component rendered with" + text)
+
+    useEffect(() => {
+       const timeoutId = setTimeout(() => {
+           console.log("Timeout expired")
+           setText('3 seconds passed')
+       }, 3000)
+        return () => {
+           clearTimeout(timeoutId)
+        }
+    },[text])
+
+    return <div>
+
+        Typed text: {text}
+    </div>
+}
+
+// export const Clock = () => {
+//     console.log("tick")
+//     const [count, setCount] = useState(new Date())
+//
+//
+//     useEffect(() => {
+//         const intervalId = setInterval(() => {
+//             setCount(new Date())
+//         }, 1000)
+//
+//         return () => {
+//             clearInterval(intervalId)
+//         }
+//     }, [])
+//
+//     let date = new Date();
+//     let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours()
+//     let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+//     let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds()
+//
+//
+//         return <div>
+//
+//             {hours}:{minutes}:{seconds}
+//
+//         </div>
+//
+// }
